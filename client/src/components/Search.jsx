@@ -11,8 +11,8 @@ const Search = () => {
     const location = useLocation()
     const [isSearchPage,setIsSearchPage] = useState(false)
     const [ isMobile ] = useMobile()
-    const params = useLocation()
-    const searchText = params.search.slice(3)
+    const queryParams = new URLSearchParams(location.search)
+    const searchText = queryParams.get("q") || ""
 
     useEffect(()=>{
         const isSearch = location.pathname === "/search"
