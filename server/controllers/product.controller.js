@@ -276,11 +276,12 @@ export const searchProduct = async(request,response)=>{
             limit  = 10
         }
 
-        const query = search ? {
-            $text : {
-                $search : search
-            }
-        } : {}
+        const query = search && search.trim() !== "" ? {
+          publish: true,
+          $text: { $search: search }
+        } : {
+          publish: true
+        }
 
         const skip = ( page - 1) * limit
 
