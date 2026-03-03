@@ -42,7 +42,7 @@ const Header = () => {
         navigate("/user")
     }
 
-    //total item and total price
+    // total item and total price
     // useEffect(()=>{
     //     const qty = cartItem.reduce((preve,curr)=>{
     //         return preve + curr.quantity
@@ -57,17 +57,17 @@ const Header = () => {
     // },[cartItem])
 
   return (
-    <header className='h-24 lg:h-20 lg:shadow-md sticky top-0 z-40 flex flex-col justify-center gap-1 bg-white'>
+    <header className='h-25 lg:h-20 lg:shadow-md sticky top-0 z-40 flex flex-col justify-center gap-3 bg-white pb-4 pt-2 lg:pb-0 lg:pt-0'>
         {
             !(isSearchPage && isMobile) && (
-                <div className='container mx-auto flex items-center px-2 justify-between'>
+                <div className='container m-auto  flex items-center px-2 justify-between'>
                                 {/**logo */}
                                 <div className='h-full'>
                                     <Link to={"/"} className='h-full flex justify-center items-center'>
                                         {/* <h1 className="text-4xl font-bold"><span className='text-yellow-500'>Grab</span><span className='text-green-600'>N</span><span className='text-yellow-500'>Go</span></h1> */}
                                         <img 
                                             src={logo}
-                                            width={170}
+                                            width={120}
                                             height={60}
                                             alt='logo'
                                             className='hidden lg:block'

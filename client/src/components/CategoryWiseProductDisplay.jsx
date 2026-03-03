@@ -54,7 +54,7 @@ const CategoryWiseProductDisplay = ({ id, name }) => {
 
   
 
-  const handleRedirectProductListpage = ()=>{
+    const handleRedirectProductListpage = ()=>{
       const subcategory = subCategoryData.find(sub =>{
         const filterData = sub.category.some(c => {
           return c._id == id

@@ -16,7 +16,7 @@ const CardProduct = ({data}) => {
     const [loading,setLoading] = useState(false)
   
   return (
-    <Link to={url} className='border py-2 lg:p-4 grid gap-1 lg:gap-3 min-w-36 lg:min-w-52 rounded cursor-pointer bg-white' >
+    <Link to={url} className='border py-2 lg:p-4 grid gap-1 lg:gap-3 min-w-40 lg:min-w-52 rounded cursor-pointer bg-white' >
       <div className='min-h-20 w-full max-h-24 lg:max-h-32 rounded overflow-hidden'>
         <img 
           src={data.image[0]}
@@ -24,7 +24,7 @@ const CardProduct = ({data}) => {
         />
       </div>
       <div className='flex items-center gap-1'>
-        <div className='rounded text-xs w-fit p-[1px] px-2 text-green-600 bg-green-50'>
+        <div className='rounded-full text-xs w-fit p-[1px] px-2 text-green-600 bg-green-100'>
               10 min 
         </div>
         <div>

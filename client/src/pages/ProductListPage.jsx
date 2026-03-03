@@ -17,8 +17,6 @@ const ProductListPage = () => {
   const AllSubCategory = useSelector(state => state.product.allSubCategory)
   const [DisplaySubCatory, setDisplaySubCategory] = useState([])
 
-  console.log(AllSubCategory)
-
   const subCategory = params?.subCategory?.split("-")
   const subCategoryName = subCategory?.slice(0, subCategory?.length - 1)?.join(" ")
 
@@ -93,7 +91,7 @@ const ProductListPage = () => {
                       className=' w-14 lg:h-14 lg:w-12 h-full object-scale-down'
                     />
                   </div>
-                  <p className='-mt-6 lg:mt-0 text-xs text-center lg:text-left lg:text-base'>{s.name}</p>
+                  <p className='mt-6 lg:mt-0 text-xs text-center lg:text-left lg:text-base'>{s.name}</p>
                 </Link>
               )
             })

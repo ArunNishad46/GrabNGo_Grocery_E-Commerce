@@ -30,7 +30,7 @@ const Home = () => {
   return (
    <section className='bg-white'>
       <div className='flex justify-center pt-6 container mx-auto'>
-        <div>
+        <div className='mx-4'>
           <div className={`w-full h-full bg-blue-100 rounded-xl ${!banner && "animate-pulse my-2" } `}>
               <img
                 src={banner}
