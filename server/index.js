@@ -1,0 +1,61 @@
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
+import morgan from "morgan";
+import helmet from "helmet";
+import connectDB from "./config/connectDB.js";
+import userRouter from "./route/user.route.js";
+import categoryRouter from "./route/category.route.js";
+import uploadRouter from "./route/upload.router.js";
+import subCategoryRouter from "./route/subCategory.route.js";
+import productRouter from "./route/product.route.js";
+import cartRouter from "./route/cart.route.js";
+import addressRouter from "./route/address.route.js";
+import orderRouter from "./route/order.route.js";
+import aiRouter from "./route/ai.route.js";
+import dns from "dns";
+dotenv.config();
+
+dns.setServers(["8.8.8.8", "1.1.1.1"]);
+
+const app = express();
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true,
+  }),
+);
+app.use(express.json());
+app.use(cookieParser());
+app.use(morgan("dev"));
+app.use(
+  helmet({
+    crossOriginResourcePolicy: false,
+  }),
+);
+
+const PORT = process.env.PORT || 5000;
+
+app.get("/", (request, response) => {
+  ///server to client
+  response.json({
+    message: "Server is running " + PORT,
+  });
+});
+
+app.use("/api/user", userRouter);
+app.use("/api/category", categoryRouter);
+app.use("/api/file", uploadRouter);
+app.use("/api/subcategory", subCategoryRouter);
+app.use("/api/product", productRouter);
+app.use("/api/cart", cartRouter);
+app.use("/api/address", addressRouter);
+app.use("/api/order", orderRouter);
+app.use("/api/ai", aiRouter);
+
+connectDB().then(() => {
+  app.listen(PORT, () => {
+    console.log("Server is running", PORT);
+  });
+});
